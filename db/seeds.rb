@@ -7,13 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 city_id = []
-
 10.times do
   city = City.create!(name: Faker::Address.city, zip_code: Faker::Address.zip_code )
   puts "Création d'une ville"
   city_id << city.id
 end
-
 user_id = []
 10.times do
   user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.paragraph(sentence_count: 2), email: Faker::Internet.email, age: Faker::Number.number(digits: 2), city_id: city_id.sample )
